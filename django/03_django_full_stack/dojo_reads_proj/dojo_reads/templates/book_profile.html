@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Book</title>
+</head>
+<body>
+    <!-- if errors, list here -->
+    {% if messages %}
+    <h3> ** errors when adding new book or review ** </h3>
+    <ul class="messages ml-4">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    <!-- top bar -->
+    <nav class="navbar justify-content-end">
+        <div class="p-2">
+            <a href="/books" class="mr-4">Home</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <div class="d-flex justify-content-around">
+        <!-- Book Info -->
+        <div class="container">
+            <h6>{{book.title}}</h6>
+            <h8>Author: {{book.author.name}}</h8>
+
+            <h6>Reviews:</h6>
+            {% for review in reviews %}
+                <hr>
+                <p>Rating: {{ review.rating }}</p>
+                <p><a href="/users/{{review.user.id}}">{{review.user.alias}}</a> says: {{review.content}}</p>
+                <p>Posted on {{review.created_at}}</p>
+                {% if review.user.id == user.id %}
+                {% csrf_token %}
+                <form action="/delete" method="post">
+                <button class="block ml-auto mr-5" type="submit">Delete Review</button>
+                {% endif %}
+            {% endfor %}
+
+        </div> <!--end book info-->
+
+        <!-- Add a Review -->
+        <div class="container">
+            <form action="/new_review" method="post">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <input type="hidden" name="book_id" value="{{book.id}}">
+                    <label for="content">Review: </label>
+                    <textarea name="content" cols="80" rows="5"></textarea>
+                </div>
+                <div class="form-group row">
+                    <label for="rating">Rating: </label>
+                    <select class="form-control" name="rating">
+                        <option selected class="text-muted">Pick a rating</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <button type="submit" class="block ml-auto mr-7 btn btn-success">Add Review</button>
+            </form>
+        </div> <!--end add a review-->
+
+    </div>
+</body>
+</html>

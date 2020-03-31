@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Trail Log</title>
+</head>
+<body>
+    <!-- top bar -->
+    <nav class="navbar justify-content-between">
+        <span class="navbar-brand justify-content-start">Log for my visit to {{user_visit.park.name}}:</span>
+        <div>
+            <a href="/logout">Logout</a>
+            <a href="/dashboard">Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <ul>
+            <li><a href="/park_profile/{{user_visit.park_id}}">{{user_visit.park.name}}</a></li>
+            <li>{{user_visit.formatted_date}}</li>
+            <li>park info</li>
+            <!-- parse out hiking group string -->
+            <li>I hiked here with: </li>
+                <ul>
+                    <li>{{adults}} adults</li>
+                    <li>{{kids}} kids</li>
+                    <li>{{people_with_disabilities}} people with disabilities</li>
+                    <li>{{pets}} pets</li>
+                </ul>
+            <li>My public notes: </li>
+                <ul>
+                    <li>{{user_visit.public_notes}}</li>
+                </ul>
+            <li>My private notes: </li>
+                <ul>
+                    <li>{{user_visit.private_notes}}</li>
+                </ul>
+            <!-- <li>pics</li> -->
+            <li>edit button</li>
+        </ul>
+    </div>
+
+</body>
+</html>

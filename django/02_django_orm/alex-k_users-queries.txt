@@ -1,0 +1,109 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red82\green194\blue60;\red255\green255\blue255;\red69\green255\blue43;
+\red231\green255\blue10;\red243\green138\blue55;\red78\green0\blue1;\red251\green81\blue49;\red82\green195\blue61;
+\red69\green255\blue44;\red232\green255\blue10;\red78\green0\blue1;\red251\green81\blue50;\red12\green0\blue110;
+\red82\green195\blue61;\red70\green255\blue45;\red234\green255\blue10;\red244\green139\blue57;\red78\green0\blue1;
+\red252\green82\blue50;}
+{\*\expandedcolortbl;;\cssrgb\c37555\c78934\c30047;\cssrgb\c100000\c100000\c100000;\cssrgb\c29545\c97676\c21950;
+\cssrgb\c92287\c98705\c0;\cssrgb\c97022\c61364\c27559;\cssrgb\c38270\c0\c0;\cssrgb\c99764\c41164\c24764;\cssrgb\c37662\c79047\c30259;
+\cssrgb\c29735\c97871\c22268;\cssrgb\c92642\c99135\c0;\cssrgb\c38293\c0\c0;\cssrgb\c99843\c41304\c25028;\cssrgb\c5534\c5606\c50782;
+\cssrgb\c37769\c79159\c30470;\cssrgb\c29924\c98066\c22585;\cssrgb\c92999\c99567\c0;\cssrgb\c97302\c61754\c28193;\cssrgb\c38316\c0\c0;
+\cssrgb\c99922\c41442\c25291;}
+\margl1440\margr1440\vieww20340\viewh12100\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs40 \cf2 \cb3 \CocoaLigature0 In [
+\f1\b \cf4 4
+\f0\b0 \cf2 ]: \cf5 User.objects.create(first_name=\cf6 "Cecily"\cf5 , last_name=\cf6 "Strong"\cf5 , email_address=\cf6 "cstrong@snl.com"\cf5 , age=\cf2 36\cf5 )                                                                   \
+\cf7 Out[
+\f1\b \cf8 4
+\f0\b0 \cf7 ]: \cf5 <User: User object (1)>\
+\
+\cf2 In [
+\f1\b \cf4 5
+\f0\b0 \cf2 ]: \cf5 User.objects.create(first_name=\cf6 "Kate"\cf5 , last_name=\cf6 "McKinnon"\cf5 , email_address=\cf6 "kmckinnon@snl.com"\cf5 , age=\cf2 38\cf5 )                                                                 \
+\cf7 Out[
+\f1\b \cf8 5
+\f0\b0 \cf7 ]: \cf5 <User: User object (2)>\
+\
+\cf2 In [
+\f1\b \cf4 6
+\f0\b0 \cf2 ]: \cf5 User.objects.create(first_name=\cf6 "Keenan"\cf5 , last_name=\cf6 "Thompson"\cf5 , email_address=\cf6 "kthompson@snl.com"\cf5 , age=\cf2 42\cf5 )                                                               \
+\cf7 Out[
+\f1\b \cf8 6
+\f0\b0 \cf7 ]: \cf5 <User: User object (3)>\
+\
+\cf9 In [
+\f1\b \cf10 7
+\f0\b0 \cf9 ]: \cf11 User.objects.all().values()                                                        \
+\cf12 Out[
+\f1\b \cf13 7
+\f0\b0 \cf12 ]: \cf5 <QuerySet [\{'id': 1, 'first_name': 'Cecily', 'last_name': 'Strong', 'email_address': 'cstrong@snl.com', 'age': 36, 'created_at': datetime.datetime(2020, 2, 10, 20, 47, 54, 990095, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 2, 10, 20, 47, 54, 990155, tzinfo=<UTC>)\}, \{'id': 3, 'first_name': 'Keenan', 'last_name': 'Pancakes', 'email_address': 'kthompson@snl.com', 'age': 42, 'created_at': datetime.datetime(2020, 2, 10, 20, 52, 10, 351200, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 2, 10, 20, 55, 10, 689153, tzinfo=<UTC>)\}]>\
+\
+\cf9 In [
+\f1\b \cf10 8
+\f0\b0 \cf9 ]: \cf11 User.objects.last().\cf14 __dict__\cf11                                                        \
+\cf12 Out[
+\f1\b \cf13 8
+\f0\b0 \cf12 ]: \cf5 \
+\{'_state': <django.db.models.base.ModelState at 0x10b494700>,\
+ 'id': 3,\
+ 'first_name': 'Keenan',\
+ 'last_name': \'91Thompson\'92,\
+ 'email_address': 'kthompson@snl.com',\
+ 'age': 42,\
+ 'created_at': datetime.datetime(2020, 2, 10, 20, 52, 10, 351200, tzinfo=<UTC>),\
+ 'updated_at': datetime.datetime(2020, 2, 10, 20, 52, 10, 689153, tzinfo=<UTC>)\}\
+\
+\cf9 In [
+\f1\b \cf10 9
+\f0\b0 \cf9 ]: \cf11 User.objects.first().\cf14 __dict__\cf11                                                       \
+\cf12 Out[
+\f1\b \cf13 9
+\f0\b0 \cf12 ]: \cf5 \
+\{'_state': <django.db.models.base.ModelState at 0x10b448ac0>,\
+ 'id': 1,\
+ 'first_name': 'Cecily',\
+ 'last_name': 'Strong',\
+ 'email_address': 'cstrong@snl.com',\
+ 'age': 36,\
+ 'created_at': datetime.datetime(2020, 2, 10, 20, 47, 54, 990095, tzinfo=<UTC>),\
+ 'updated_at': datetime.datetime(2020, 2, 10, 20, 47, 54, 990155, tzinfo=<UTC>)\}\
+\
+\cf2 In [
+\f1\b \cf4 10
+\f0\b0 \cf2 ]: \cf5 user = User.objects.get(\cf2 id\cf5 =\cf2 3\cf5 )                                                      \
+\
+\cf2 In [
+\f1\b \cf4 11
+\f0\b0 \cf2 ]: \cf5 user.last_name = \cf6 "Pancakes"\cf5                                                         \
+\
+\cf2 In [
+\f1\b \cf4 12
+\f0\b0 \cf2 ]: \cf5 user.save()                                                                        \
+\
+\cf2 In [
+\f1\b \cf4 13
+\f0\b0 \cf2 ]: \cf5 user = User.objects.get(\cf2 id\cf5 =\cf2 2\cf5 )                                                      \
+\
+\cf2 In [
+\f1\b \cf4 14
+\f0\b0 \cf2 ]: \cf5 user.delete()                                                                      \
+\cf7 Out[
+\f1\b \cf8 14
+\f0\b0 \cf7 ]: \cf5 (1, \{'users_app.User': 1\})\
+\
+\cf15 In [
+\f1\b \cf16 15
+\f0\b0 \cf15 ]: \cf17 User.objects.all().values().order_by(\cf18 "first_name"\cf17 )                                 \
+\cf19 Out[
+\f1\b \cf20 15
+\f0\b0 \cf19 ]: \cf17 <QuerySet [\{'id': 1, 'first_name': 'Cecily', 'last_name': 'Strong', 'email_address': 'cstrong@snl.com', 'age': 36, 'created_at': datetime.datetime(2020, 2, 10, 20, 47, 54, 990095, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 2, 10, 20, 47, 54, 990155, tzinfo=<UTC>)\}, \{'id': 3, 'first_name': 'Keenan', 'last_name': 'Pancakes', 'email_address': 'kthompson@snl.com', 'age': 42, 'created_at': datetime.datetime(2020, 2, 10, 20, 52, 10, 351200, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 2, 10, 20, 55, 10, 689153, tzinfo=<UTC>)\}]>\
+\
+\cf15 In [
+\f1\b \cf16 16
+\f0\b0 \cf15 ]: \cf17 User.objects.all().values().order_by(\cf18 "-first_name"\cf17 )                                \
+\cf19 Out[
+\f1\b \cf20 16
+\f0\b0 \cf19 ]: \cf17 <QuerySet [\{'id': 3, 'first_name': 'Keenan', 'last_name': 'Pancakes', 'email_address': 'kthompson@snl.com', 'age': 42, 'created_at': datetime.datetime(2020, 2, 10, 20, 52, 10, 351200, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 2, 10, 20, 55, 10, 689153, tzinfo=<UTC>)\}, \{'id': 1, 'first_name': 'Cecily', 'last_name': 'Strong', 'email_address': 'cstrong@snl.com', 'age': 36, 'created_at': datetime.datetime(2020, 2, 10, 20, 47, 54, 990095, tzinfo=<UTC>), 'updated_at': datetime.datetime(2020, 2, 10, 20, 47, 54, 990155, tzinfo=<UTC>)\}]>}

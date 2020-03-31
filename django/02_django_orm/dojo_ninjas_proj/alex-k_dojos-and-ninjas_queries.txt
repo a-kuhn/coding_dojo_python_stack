@@ -1,0 +1,42 @@
+1. python manage.py shell
+
+2. from dojo_ninjas_app.models import *
+
+3. Dojo.objects.create(name=”Orange County”, city=”Santa Ana”, state=”CA”)
+
+4. Dojo.objects.create(name=”Burbank”, city=”Burbank”, state=”CA”)
+
+5. Dojo.objects.create(name=”Seattle”, city=”Seattle”, state=”WA”)
+
+6. c = Dojo.objects.all(); c.delete()
+
+7. Dojo.objects.create(name=”Orange County”, city=”Santa Ana”, state=”CA”)
+
+8. Dojo.objects.create(name=”Burbank”, city=”Burbank”, state=”CA”)
+
+9. Dojo.objects.create(name=”Seattle”, city=”Seattle”, state=”WA”)
+
+10. Ninja.objects.create(first_name="frodo", last_name="baggins", dojo_id=Dojo.objects.get(name="Orange County"))
+
+11. Ninja.objects.create(first_name="sam", last_name="gamgee", dojo_id=Dojo.objects.get(name="Orange County"))
+
+12. Ninja.objects.create(first_name="peregrine", last_name="took", dojo_id=Dojo.objects.get(name="Orange County"))
+
+13. Ninja.objects.create(first_name="ron", last_name="weasley", dojo_id=Dojo.objects.get(name="Burbank"))
+
+14. Ninja.objects.create(first_name="neville", last_name="longbottom", dojo_id=Dojo.objects.get(name="Burbank"))
+
+15. Ninja.objects.create(first_name="minerva", last_name="mcgonagall", dojo_id=Dojo.objects.get(name="Burbank"))
+
+16. Ninja.objects.create(first_name="han", last_name="solo", dojo_id=Dojo.objects.get(name="Seattle"))
+
+17. Ninja.objects.create(first_name="luke", last_name="skywalker", dojo_id=Dojo.objects.get(name="Seattle"))
+18. Ninja.objects.create(first_name="jarjar", last_name="binks", dojo_id=Dojo.objects.get(name="Seattle"))
+
+19. Dojo.objects.first().ninjas.all()
+
+20. Dojo.objects.last().ninjas.all()
+
+21. Ninja.objects.last().dojo_id
+
+22. Dojo.objects.create(name=”Chicago”, city=”Chicago”, state=”IL”, desc=”a dojo for the Chicago-area ninjas to craft their skills”)

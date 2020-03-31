@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Add a Park</title>
+</head>
+<body>
+    <!-- top bar -->
+    <nav class="navbar justify-content-between">
+        <span class="navbar-brand justify-content-start">Want to add a park?</span>
+        <div>
+            <a href="/logout">Logout</a>
+            <a href="dashboard">Home</a>
+        </div>
+    </nav>
+
+    <form action="/create_park" method="POST">
+        {% csrf_token %}
+        <h6>placeholder for adding a park</h6>
+        <h6>will be a form to input:</h6>
+        <ul>
+            <li>name</li>
+            <li>website url</li>
+            <li>trail map url</li>
+            <li>allows pets</li>
+            <li>limited access</li>
+            <li>busy</li>
+            <li>has shade</li>
+            <li>has water</li>
+            <li>has bathrooms</li>
+            <li>is accessible</li>
+            <li>is kid friendly</li>
+            <li>permitted activities</li>
+            <li>natural features</li>
+            <li>has playground</li>
+        </ul>
+        <h6>Trail Report</h6>
+        <p>copy trail report form here</p>
+
+        <button type="submit">Submit Park for Review</button>
+    </form>
+
+</body>
+</html>

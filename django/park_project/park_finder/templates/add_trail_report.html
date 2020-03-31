@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Add a Trail Report</title>
+</head>
+<body>
+    <!-- top bar -->
+    <nav class="navbar justify-content-between">
+        <span class="navbar-brand justify-content-start">Log your visit to {{park.name}}: </span>
+        <div>
+            <a href="/logout">Logout</a>
+            <a href="/dashboard">Home</a>
+        </div>
+    </nav>
+
+    <hr>
+
+    <div class="container">
+        <form action="/create_report/{{park.id}}" method="post">
+            {% csrf_token %}
+                <!-- hiking_group_at_visit_time -->
+                <h6>Who did you hike with?</h6>
+                <div class="form row">
+                    <!-- adults -->
+                    <div class="form-group col-md-6">
+                        <label for="hg_adults">Adults: </label>
+                        <input name="hg_adults" type="number" class="form-control" placeholder="1">
+                    </div>
+                    <!-- children -->
+                    <div class="form-group col-md-6">
+                        <label for="hg_kids">Kids: </label>
+                        <input name="hg_kids" type="number" class="form-control" placeholder="0">
+                    </div>
+                    <!-- people with disabilities -->
+                    <div class="form-group col-md-6">
+                        <label for="hg_ppl_w_dis">People with disabilities: </label>
+                        <input name="hg_ppl_w_dis" type="number" class="form-control" placeholder="0">
+                    </div>
+                    <!-- pets -->
+                    <div class="form-group col-md-6">
+                        <label for="hg_pets">Pets: </label>
+                        <input name="hg_pets" type="number" class="form-control" placeholder="0">
+                    </div>
+                </div> <!-- end hiking_group_at_visit_time -->
+    <hr>
+                <!-- date visited -->
+                <div class="form row">
+                    <div class="form group">
+                        <label for="date_visited">Date Visited: </label>
+                        <input type="date" name="date_visited">
+                    </div>
+                    <!-- rating -->
+                    <div class="form group form-inline ml-4">
+                        <label for="rating">Rating: </label>
+                        <select class="form-control" name="rating">
+                            <option selected>Rate your experience</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div> 
+                </div><!-- end rating -->
+    <hr>
+                <!-- public notes -->
+                <div class="form-group row">
+                    <label for="public_notes">Public Notes: </label>
+                    <textarea name="public_notes" cols="80" rows="5" placeholder="These notes will be visible to all users."></textarea>
+                </div> <!-- end public notes -->
+    <hr>
+                <!-- private notes -->
+                <div class="form-group row">
+                    <label for="private_notes">Private Notes: </label>
+                    <textarea name="private_notes" cols="80" rows="5" placeholder="These notes will only be visible in your personal trail log."></textarea>
+                </div> <!-- end private notes -->
+    <hr>
+                <!--! upload pics -->
+                <!-- <div class="form-group">
+                    <label for="visit_pics">Upload pictures of your adventure!</label>
+                    <input name="visit_pics" type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div> -->
+            <button type="submit" class="btn btn-success">Add my report</button>
+        </form> <!-- end submission form -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Search Results</title>
+</head>
+<body>
+    <!-- top bar -->
+    <nav class="navbar justify-content-between">
+        <span class="navbar-brand justify-content-start">Let's find our next adventure!</span>
+        <div>
+            <a href="/logout">Logout</a>
+            <a href="/dashboard">Home</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <ul>
+            <li>for loop -- each list item = search result</li>
+                <ul>
+                    <li>park a-tag that links to park profile</li>
+                    <li>3 most recent user pics</li>
+                    <li>2 most recent trail reports</li>
+                </ul>
+        </ul>
+    </div>
+
+    <p>need an add to visit list feature action/href = /add_visit_from_results/park.id</p>
+</body>
+</html>

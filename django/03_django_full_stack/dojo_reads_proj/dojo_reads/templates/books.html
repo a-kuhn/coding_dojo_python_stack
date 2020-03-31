@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Books</title>
+</head>
+<body>
+    <!-- top bar -->
+    <nav class="navbar justify-content-between">
+        <span class="navbar-brand h1 justify-content-start">Welcome, {{user.alias}}</span>
+        <div>
+            <a href="/books/add">Add Book and Review</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <!-- main content -->
+    <div class="d-flex justify-content-between"> 
+
+        <!-- recent reviews -->
+        <div class="ml-2">
+            <h5>Recent Book Reviews: </h5>
+            {% for review in reviews %}
+            <div class="container mb-2">
+                <hr>
+                <!-- list 3 most recent reviews -- any book -->
+                <a href="/books/{{review.book_id}}">{{review.book.title}}</a>
+                    <p>Rating: {{review.rating}}</p>
+                    <p><a href="/users/{{review.user.id}}">{{review.user.alias}}</a> says: {{review.content}}</p>
+                    <p>Posted on {{review.created_at}}</p>
+                    {% if review.user.id == user.id %}
+                        <form action="/delete" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="delete_review" value="{{review.id}}">
+                            <button class="block ml-auto mr-5" type="submit">Delete Review</button>
+                        </form>
+                    {% endif %}
+            </div>
+            {% endfor %}
+        </div> <!-- end recent reviews -->
+        
+        <!-- other books w. reviews -->
+        <div class="mr-2">
+            <h5>Other Books with Reviews: </h5>
+            <ul>
+            {% for book in books %}
+                <li><a href="books/{{book.id}}">{{book.title}}</a></li>
+            {% endfor %}
+        </ul>
+        </div> <!-- end other books w. reviews --> 
+    </div>  <!--end main content-->
+</body>
+</html>

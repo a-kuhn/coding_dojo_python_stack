@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>User</title>
+</head>
+<body>
+    <!-- top bar -->
+    <nav class="navbar justify-content-end">
+        <div class="p-2">
+            <a href="/books" class="mr-4">Home</a>
+            <a href="/books/add" class="mr-3">Add Book and Review</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div>
+            <h3>User Alias: {{user.alias}}</h3>
+            <h5>Name: {{user.name}}</h5>
+            <h5>Email: {{user.email}}</h5>
+            <h5>Total Reviews: {{num_of_reviews}}</h5>
+        </div>
+        <div>
+            <h5>Posted reviews on the following books:</h5>
+            <ul>
+                {% for book in reviewed_books %}
+                <li><a href="/books/{{book.book_id}}">{{book.book.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

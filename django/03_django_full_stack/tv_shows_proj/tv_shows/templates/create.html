@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Add a new show</h1>
+    <a href="/shows">Go Back</a>
+
+    <!-- list of errors, if any occur on update attempt -->
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="/shows/create" method="post">
+        {% csrf_token %}
+        <label for="title">Title</label>
+        <input type="text" name="title">
+        <label for="network">Network</label> 
+        <input type="text" name="network">
+        <label for="release_date">Release Date</label>
+        <input type="date" name="release_date">
+        <label for="desc">Description</label>
+        <textarea name="desc" cols="30" rows="2" value="{{show.desc}}"></textarea>
+        <button type="submit">Create</button>
+    </form>
+
+</body>
+</html>

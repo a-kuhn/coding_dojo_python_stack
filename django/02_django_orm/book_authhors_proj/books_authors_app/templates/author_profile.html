@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Author Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>{{author.first_name}} {{ author.last_name }}</h1>
+    <h4>ID: {{author.id}}</h4>
+    <h4>Notes: 
+        <p>{{author.notes}}</p>
+    </h4>
+    
+    <h4>Books: </h4>
+    <ul>
+        {% for book in author.books.all %}
+        <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- dropdown list add book link -->
+    <form action="/add_book_to_author" method="post">
+        {% csrf_token %}
+        <select name="book" id="">
+            <!-- for loop to autofill list of authors or books -->
+            {% for book in books %}
+            <option value="{{book.id}}">{{ book.title}}</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" value="{{author.id}}" name="author">
+        <button type="submit">Add</button>
+    </form>
+
+
+</body>
+</html>
